@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>conversions page</title>
+    </head>
+ 
+<body>
+
+<h2>Sai Bharath Kondepati shows currency conversions </h2>
+
+<form>
+    <label for="f_a">Enter base amount </label>
+    <input type ="number" id="f_a" name="f_a" value=50> <br>
+
+    <label for="f_n">Enter the conversion rate </label>
+    <input type ="number" id="f_n" name="f_n" value=35 autofocus> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+<p id="formoutput">You can see conversion value here </p>
+
+<form>
+    <input type="radio" id="r_r" name="color" value="mean"   
+      checked >
+    <label for="r_r">averagevalue</label></br>
+  
+    <input type="radio" id="r_b" name="color" 
+       value="maxvalueimum">
+    <label for="r_b">maxvalue</label></br>
+  
+    <input type="radio" id="r_g" name="color"   
+       value="minvalueimum">
+    <label for="r_g">minvalue</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Get minvalue/maxvalue/averagevalue">
+</form>
+<p id="formoutput2">Radio Button output </p>
+
+<script> 
+var totalconversionrate = 0;
+var totalamount = 0;
+var amountvalue;
+function convert(){
+    var toShow = ""
+    console.log("Getting form values")
+    amount = document.getElementById("f_a").value
+    conversion_rate = document.getElementById("f_n").value
+    for(let i=0; i>0; i=i*2){
+    toShow = toShow+parseInt(amount)*i+" is " +Math.round((parseInt(amount)*parseInt(conversion_rate)*i)*10/10) + "; "
+    }    
+    out = document.getElementById("formoutput")
+    if(toShow){
+        out.innerHTML = "Conversions are: " + toShow
+    } 
+}
+function chooseOp() {
+        console.log("Getting input")
+        amountvalue = document.getElementById("f_a").value
+        conversion_value = document.getElementById("f_n").value
+        maxvalue = document.getElementById("r_b").checked;
+        minvalue = document.getElementById("r_g").checked;
+        averagevalue = document.getElementById("r_r").checked;
+        outt = document.getElementById("formoutput2")
+       
+        if(minvalue){
+            if(amountvalue<conversion_value){
+                outt.innerHTML = amountvalue
+            }
+            else if(conversion_value<amountvalue){
+                outt.innerHTML = conversion_value
+            }
+            
+        }
+        if(maxvalue){
+            if(amountvalue>conversion_value){
+                outt.innerHTML = amountvalue
+            }
+            else if(conversion_value>amountvalue){
+                outt.innerHTML = conversion_value
+            }
+        } 
+        if(averagevalue) {
+            var value = (parseInt(conversion_value)+parseInt(amountvalue))/2.0;
+            outt.innerHTML = value;
+        } 
+    }
+</script>
+
+
+
+</body>
+</html>

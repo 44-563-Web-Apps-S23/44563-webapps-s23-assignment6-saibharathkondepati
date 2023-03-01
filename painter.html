@@ -18,10 +18,7 @@
     <input type="button" onclick="checkPainter()" value="Check the guess">
 
 </form>
-
-
 <p id="result">This text will be replaced </p>
-
 <script> 
 var good=0;
 var oops=0;
@@ -41,6 +38,27 @@ function checkPainter(){
     }
 }
 </script>
-
+<div class="container-fluid">
+    <img src="kiwiplant.jpg" class="img-fluid" id="image" alt="kiwiplant", onclick=selectImage() height=100, width=100>    
+</div>
+<script>
+    myImage =1
+    function selectImage(){
+        switch(myImage){
+            case 1:
+                document.getElementById("image").src="Nepeta.jpg";
+                myImage++;
+                break
+            case 2:
+                document.getElementById("image").src="orange.jpg";
+                myImage++;
+                break;
+            case 3:
+                document.getElementById("image").src="kiwiplant.jpg";
+                myImage=1
+                break;
+        }
+    }
+</script>
 </body>
 </html> 
