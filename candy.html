@@ -5,32 +5,31 @@
     </head>
  
 <body>
-
-<h2> Sai Bharath Kondepati chooses candy </h2>
+    <h2> Sai Bharath Kondepati chooses candy </h2>
 
 <form>
-    <label for="form1_age">Dark Chocolate</label>
-    <input type ="checkbox" id="form1_age" name="form1_age" value=True> <br>
+    <label for="form_darkvalue">darkvalue Chocolate</label>
+    <input type ="checkbox" id="form_darkvalue" name="form_darkvalue" value=True> <br>
 
-    <label for="form1_nick">Nuts</label>
-    <input type ="checkbox" id="form1_nick" name="form1_nick" value=True> <br>
+    <label for="form_nutsvalue">nutsvalue</label>
+    <input type ="checkbox" id="form_nutsvalue" name="form_nutsvalue" value=True> <br>
 
-    <label for="form1_chewy">Chewy </label>
-    <input type ="checkbox" id="form1_chewy" name="form1_chewy" value=False> <br>
+    <label for="form_chewyvalue">chewyvalue </label>
+    <input type ="checkbox" id="form_chewyvalue" name="form_chewyvalue" value=False> <br>
 
     <input type="button" onclick="selectBox()" value="Select a box ">
 </form>
 <p id="result">This text will be replaced </p>
 <form>
-    <label for="form1_size">Enter the size </label>
-    <input type ="text" id="form1_size" name="form1_size" value="size"> <br>
+    <label for="form_size">Enter the size </label>
+    <input type ="text" id="form_size" name="form_size" value="size"> <br>
 
-    <label for="form1_price">Enter price</label>
-    <input type ="text" id="form1_price" name="form1_price" > <br>
+    <label for="form_price">Enter price</label>
+    <input type ="text" id="form_price" name="form_price" > <br>
 
     <input type="button" onclick="updateBox()" value="Update the box">
 </form>
-<p id="resultt">This text will be replaced </p>
+<p id="outputvalue">This text will be replaced </p>
 
 
 
@@ -41,23 +40,23 @@ function updateBox(){
     
     var toShow = ""
     console.log("Getting form values")
-    size = document.getElementById("form1_size").value
-    price = document.getElementById("form1_price").value
-    dark = document.getElementById("form1_age").checked
-    nuts = document.getElementById("form1_nick").checked
-    chewy = document.getElementById("form1_chewy").checked
+    size = document.getElementById("form_size").value
+    price = document.getElementById("form_price").value
+    darkvalue = document.getElementById("form_darkvalue").checked
+    nutsvalue = document.getElementById("form_nutsvalue").checked
+    chewyvalue = document.getElementById("form_chewyvalue").checked
 
-    if(dark){
+    if(darkvalue){
         my_candy_box.size=price;
     }
-    if(nuts){
+    if(nutsvalue){s
         my_candy_box.size=price;
     }
-    if(chewy){
+    if(chewyvalue){
         my_candy_box.size=price;
     }
     
-    out = document.getElementById("resultt")
+    out = document.getElementById("outputvalue")
     out.innerHTML = JSON.stringify(my_candy_box);
 }
 
@@ -67,28 +66,28 @@ function selectBox (){
     my_candy_box={};
     console.log("Getting form values")
     
-    dark = document.getElementById("form1_age").checked
-    nuts = document.getElementById("form1_nick").checked
-    chewy = document.getElementById("form1_chewy").checked
+    darkvalue = document.getElementById("form_darkvalue").checked
+    nutsvalue = document.getElementById("form_nutsvalue").checked
+    chewyvalue = document.getElementById("form_chewyvalue").checked
     
     out = document.getElementById("result")
-    if(dark){
-        my_candy_box.dark=true;
+    if(darkvalue){
+        my_candy_box.darkvalue=true;
     } 
     else{
-        my_candy_box.dark=false;
+        my_candy_box.darkvalue=false;
     } 
-    if(nuts){
-        my_candy_box.nuts=true;
-    } 
-    else{
-        my_candy_box.nuts=false;
-    } 
-    if(chewy){
-        my_candy_box.chewy=true;
+    if(nutsvalue){
+        my_candy_box.nutsvalue=true;
     } 
     else{
-        my_candy_box.chewy=false;
+        my_candy_box.nutsvalue=false;
+    } 
+    if(chewyvalue){
+        my_candy_box.chewyvalue=true;
+    } 
+    else{
+        my_candy_box.chewyvalue=false;
     } 
     out.innerHTML = JSON.stringify(my_candy_box);
 }
